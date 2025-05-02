@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/merch.css' %}">
+{% endblock %}
+{% block content %}
+<div class="product-title">
+    <h2>MANGA</h2>
+</div>
+<br>
+<br>
+<div class="manga_container">
+    {% for m in manga_preview %}
+    <div class="manga_item">
+        <div class="manga_image">
+            <!-- Show the manga image -->
+            <img src="{{ m.picture.url }}" alt="{{ m.name }}">
+        </div>
+        <div class="manga_info">
+            <h3>{{ m.name }}</h3>
+            <p>{{ m.description }}</p>  <!-- Display manga description -->
+            <a href="{{ m.details }}">See More</a>  <!-- Link to the detailed page -->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

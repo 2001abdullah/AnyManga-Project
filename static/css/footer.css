@@ -5,6 +5,8 @@
     position: relative;
     width:100%;
     clear:both;
+
+
 }
 
 .page-up {
@@ -34,6 +36,7 @@
 
 .footer__nav {
     text-align: center;
+
 }
 
 .footer__nav ul li {
@@ -41,6 +44,7 @@
     display: inline-block;
     position: relative;
     margin-right: 40px;
+
 }
 
 .footer__nav ul li:last-child {
@@ -52,6 +56,7 @@
     color: #b7b7b7;
     display: block;
     font-weight: 700;
+
 }
 
 .footer__copyright__text {

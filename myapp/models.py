@@ -46,7 +46,15 @@ class Cart(models.Model):
     update_date=models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.user
+        return f"{self.user.username}'s Cart"
+
+    def save(self, *args, **kwargs):
+        # Ensure only one product type is associated
+        if self.manga_p and self.merch_p:
+            raise ValueError("A cart item cannot have both Manga and Merch.")
+        if not self.manga_p and not self.merch_p:
+            raise ValueError("A cart item must have either Manga or Merch.")
+        super().save(*args, **kwargs)
 
 
 class Payment(models.Model):
@@ -86,4 +94,18 @@ class Order(models.Model):
     shipping_address = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"Order # {self.user.username} - {self.status}"
+      return f"Order # {self.user.username} - {self.status}"
+
+class Shipping(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    address = models.TextField()
+    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    zip_code = models.CharField(max_length=10)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.full_name} - {self.city}, {self.country}"

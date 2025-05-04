@@ -66,13 +66,11 @@
           <h2 class="card__title">{{ m.name }}</h2>
           <p class="card__description">{{ m.description|truncatewords:25 }}</p>
         </div>
-        <a href="{{ m.details }}" class="card__button">Add to cart</a>
+        <a href="{% url 'add_to_cart' 'manga' m.id %}" class="card__button">Add to cart</a>
       </div>
     </article>
   {% endfor %}
 </div>
-
-
 
 <div class="product-title">
     <h2>

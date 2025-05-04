@@ -15,7 +15,7 @@ body {
     right: 0;
     z-index: 1000;
     padding: 8px 20px;  /* Reduced padding to decrease navbar height */
-    background: linear-gradient(to right,#ab1212,#8c0909);
+    background: linear-gradient(to right,#0e2052,#fff);
     background-repeat: repeat;
     height: 60px;  /* Set fixed height for navbar */
     display: flex;

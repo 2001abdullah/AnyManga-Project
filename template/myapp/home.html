@@ -3,6 +3,10 @@
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 {% endblock %}
 
 {% block content %}
@@ -46,42 +50,71 @@
 </div>
 <br>
 <br>
-<div class="manga_container">
-    {% for m in manga_preview %}
-    <div class="manga_item">
-        <div class="manga_image">
-            <!-- Show the manga image -->
-            <img src="{{ m.picture.url }}" alt="{{ m.name }}">
+<div class="card-container">
+  {% for m in manga_preview %}
+    <article class="card">
+      <img
+        class="card__background"
+        src="{{ m.picture.url }}"
+        alt="{{ m.name }}"
+        width="1920"
+        height="2193"
+      />
+      <div class="card-price">৳{{m.price}}</div>
+      <div class="card__content | flow">
+        <div class="card__content--container | flow">
+          <h2 class="card__title">{{ m.name }}</h2>
+          <p class="card__description">{{ m.description|truncatewords:25 }}</p>
         </div>
-        <div class="manga_info">
-            <h3>{{ m.name }}</h3>
-            <p>{{ m.description }}</p>  <!-- Display manga description -->
-            <a href="{{ m.details }}">See More</a>  <!-- Link to the detailed page -->
-        </div>
-    </div>
-    {% endfor %}
+        <a href="{{ m.details }}" class="card__button">Add to cart</a>
+      </div>
+    </article>
+  {% endfor %}
 </div>
+
+
 
 <div class="product-title">
     <h2>
         Merchandise
     </h2>
+
 </div>
-<div class="manga_container">
-    {% for m in merch_preview %}
-    <div class="manga_item">
-        <div class="manga_image">
-            <!-- Show the manga image -->
-            <img src="{{ m.picture.url }}" alt="{{ m.name }}">
+<div class="container page-wrapper">
+  <div class="page-inner">
+    <div class="row">
+      {% for merch in merch_preview %}
+      <div class="el-wrapper">
+        <div class="box-up">
+          <img class="img" src="{{ merch.picture.url }}" alt="{{ merch.name }}">
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name">{{ merch.name }}</span>
+              <span class="p-company">{{ merch.category }}</span>
+            </div>
+<!--            <div class="a-size">-->
+<!--              Available sizes : <span class="size">{{ merch.sizes }}</span>-->
+<!--            </div>-->
+          </div>
         </div>
-        <div class="manga_info">
-            <h3>{{ m.name }}</h3>
-            <p>{{ m.description }}</p>  <!-- Display manga description -->
-            <a href="{{ m.details }}">See More</a>  <!-- Link to the detailed page -->
+
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="{{ merch.details_url }}">
+            <span class="price">৳{{ merch.price }}</span>
+            <span class="add-to-cart">
+              <span class="txt">Add to cart</span>
+            </span>
+          </a>
         </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
 </div>
-    {% endfor %}
 
 
 

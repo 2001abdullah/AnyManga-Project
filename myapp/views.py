@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import *
@@ -11,9 +11,11 @@ from decimal import Decimal
 def home(request):
     manga_preview=Manga.objects.all()
     merch_preview=Merch.objects.all()
+    naruto=Manga.objects.get(name='Naruto:Shippuden')
     context={
         'manga_preview':manga_preview,
-        'merch_preview':merch_preview
+        'merch_preview':merch_preview,
+        'naruto':naruto
     }
     return render(request, template_name='myapp/home.html',context=context)
 
@@ -218,3 +220,9 @@ def checkout(request):
         'cart_items': cart_items,
         'total': total_price
     })
+def manga_view(request,manga_id):
+    manga=get_object_or_404(Manga,id=manga_id)
+    context={
+        'manga':manga
+    }
+    return render(request,'myapp/manga-view.html',context=context)

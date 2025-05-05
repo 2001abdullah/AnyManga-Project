@@ -68,6 +68,7 @@
 {% endblock %}
 
 {% block extra_scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 /* Set rates + misc */
 var taxRate = 0;
@@ -121,8 +122,7 @@ function updateQuantity(quantityInput)
 {
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
-  var priceText = productRow.children('.product-price').text();
-  var price = parseFloat(priceText);
+  var price = parseFloat(productRow.children('.product-price').text());
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
 

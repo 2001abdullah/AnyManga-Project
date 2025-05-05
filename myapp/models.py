@@ -34,6 +34,8 @@ class Manga(models.Model):
     category = models.CharField(max_length=50, choices=choices,default='Shonen (少年) Manga')
     description = models.TextField(blank=True, null=True)
     picture=models.ImageField(upload_to='images/',blank=True,null=True,default='images/default.jpg')
+    writer=models.CharField(blank=True,null=True)
+    volume=models.CharField(blank=True,null=True)
 
     def __str__(self):
         return self.name

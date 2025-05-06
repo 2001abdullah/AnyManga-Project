@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import *
-from .forms import User_form,ShippingForm
+from .forms import User_form,ShippingForm,register_form
 from django.contrib.auth.decorators import login_required
 import uuid
 from decimal import Decimal
@@ -54,9 +54,9 @@ def login_view(request):
     return render(request, 'myapp/login_view.html')
 
 
-def Register(request):
+def register(request):
       if request.method=='POST':
-          form=User_form(request.POST)
+          form=register_form(request.POST)
           if form.is_valid():
               form.save()
               messages.success(request,"account opened successfully")
@@ -64,16 +64,12 @@ def Register(request):
           else:
               messages.error(request,"invalid")
       else:
-          form=User_form()
+          form=register_form()
       context={
           'form':form
       }
       return render(request,template_name='myapp/register.html',context=context)
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from .models import Cart, Manga, Merch
 
 @login_required
 def add_to_cart(request, product_type, product_id):
@@ -204,7 +200,8 @@ def checkout(request):
                 payment=payment,
                 total_amount=Decimal(total_price),
                 shipping_address=shipping.address,
-                status='Pending'
+                status='Pending',
+
             )
 
             # Clear cart (optional)
@@ -235,3 +232,21 @@ def merch_view(request,merch_id):
         'merch':merch
     }
     return render(request,'myapp/merch_view.html',context=context)
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out.")
+    return redirect('home')  # Redirect to home or any other page
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import Order
+
+@login_required
+def order_history(request):
+    user = request.user
+    # Fetch all orders placed by the user
+    orders = Order.objects.filter(user=user)  # Orders in reverse chronological order
+
+    # Pass the orders to the template
+    return render(request, 'myapp/order_history.html', {
+        'orders': orders
+    })

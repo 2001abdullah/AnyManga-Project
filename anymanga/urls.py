@@ -27,13 +27,15 @@ urlpatterns = [
     path('login/', myview.login_view,name='login_view'),
     path('merch/', myview.merch,name='merch'),
     path('manga/', myview.manga,name='manga'),
-    path('register/', myview.Register,name='register'),
+    path('register/', myview.register,name='register'),
     path('add-to-cart/<str:product_type>/<int:product_id>/', myview.add_to_cart, name='add_to_cart'),
     path('cart/', myview.view_cart, name='view_cart'),
     path('remove-from-cart/<str:product_type>/<int:product_id>/',myview.remove_from_cart, name='remove_from_cart'),
     path('checkout/',myview.checkout,name='checkout'),
     path('manga/<int:manga_id>/',myview.manga_view, name='manga_view'),
     path('merch/<int:merch_id>/',myview.merch_view, name='merch_view'),
+    path('logout/', myview.logout_view, name='logout'),
+    path('order_history/', myview.order_history, name='order_history'),
 
 ]  + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

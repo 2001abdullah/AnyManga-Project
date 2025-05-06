@@ -70,6 +70,25 @@ form .input-box input{
   border-radius: 6px;
   transition: all 0.3s ease;
 }
+.input-box {
+  position: relative;
+  height: 52px;
+  margin: 18px 0;
+}
+.error-message {
+  color: red;  /* Error text color */
+  font-size: 12px;  /* Smaller font size for error messages */
+  margin-top: 5px;  /* Add space between the input field and error message */
+  font-weight: 500;
+  display: block;  /* Ensure the error message is displayed on its own line */
+}
+.input-box .error-message {
+  position: absolute;
+  bottom: -18px;  /* Position error message just below the input */
+  left: 0;
+  width: 100%;
+  margin-top: 10px;
+}
 .input-box input:focus,
 .input-box input:valid{
   border-color: #4070f4;

@@ -1,0 +1,37 @@
+
+   .profile-header {
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+
+    .order-history {
+      margin-top: 40px;
+    }
+
+    .order-card {
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    .order-card .order-id {
+      font-weight: bold;
+    }
+
+    .order-card .order-date {
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    .order-card .order-status {
+      font-weight: bold;
+      color: green;
+    }
+
+   body{
+
+   background-color:#595656 !important;
+   }

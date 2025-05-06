@@ -15,6 +15,7 @@ class Merch(models.Model):
         ('Figures & Statues', 'Figures & Statues'),
     ]
     category=models.CharField(max_length=50, choices=choices,default='Clothes')
+    description = models.TextField(blank=True, null=True)
     picture=models.ImageField(upload_to='images/',blank=True,null=True,default='images/default.jpg')
 
     def __str__(self):
@@ -96,7 +97,9 @@ class Order(models.Model):
     shipping_address = models.TextField(blank=True, null=True)
 
     def __str__(self):
-      return f"Order # {self.user.username} - {self.status}"
+        if self.user:
+            return f"Order by {self.user.username} - {self.status}"
+        return f"Order ID: {self.id} - {self.status}"
 
 class Shipping(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

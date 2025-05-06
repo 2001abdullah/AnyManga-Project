@@ -26,14 +26,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__items set-bg" data-setbg="{% static 'images/login_page.jpg' %}">
+                <div class="hero__items set-bg" data-setbg="{% static 'images/hellsing_1.jpg' %}">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <div class="label">Manga</div>
+                                <h2>Hellsing Ultimate</h2>
                                 <p>After 30 days of travel across the world...</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="#"><span>Buy Now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
       <div class="card-price">৳{{m.price}}</div>
       <div class="card__content | flow">
         <div class="card__content--container | flow">
-          <h2 class="card__title">{{ m.name }}</h2>
+          <h2 class="card__title" style="font-size: 1.5rem; color:##e1f2f2;background-color: rgba(43, 15, 15, .7)">{{ m.name }}</h2>
           <p class="card__description">{{ m.description|truncatewords:25 }}</p>
         </div>
         <a href="{% url 'add_to_cart' 'manga' m.id %}" class="card__button">Add to cart</a>
@@ -76,50 +76,34 @@
 </div>
 
 <div class="product-title">
-    <h2>
+    <h2 style="color:#fff">
         Merchandise
     </h2>
+    <div class="card-container">
+  {% for merch in merch_preview %}
+    <article class="card">
+        <a href="{% url 'merch_view' merch.id %}">
+            <img
+        class="card__background"
+        src="{{ merch.picture.url }}"
+        alt="{{ merch.name }}"
+        width="1920"
+        height="2193"
+      />
+        </a>
 
-</div>
-<div class="container page-wrapper">
-  <div class="page-inner">
-    <div class="card-row">
-      {% for merch in merch_preview %}
-      <div class="el-wrapper">
-        <div class="box-up">
-             <a href="{% url 'merch_view' merch.id %}">
-          <img class="img" src="{{ merch.picture.url }}" alt="{{ merch.name }}">
-             </a>
-          <div class="img-info">
-            <div class="info-inner">
-              <span class="p-name">{{ merch.name }}</span>
-              <span class="p-company">{{ merch.category }}</span>
-            </div>
-<!--            <div class="a-size">-->
-<!--              Available sizes : <span class="size">{{ merch.sizes }}</span>-->
-<!--            </div>-->
-          </div>
+      <div class="card-price">৳{{merch.price}}</div>
+      <div class="card__content | flow">
+        <div class="card__content--container | flow">
+          <h2 class="card__title"  style="font-size: 1.5rem; color:##e1f2f2; background-color: rgba(43, 15, 15, .7)">{{ merch.name }}</h2>
+          <p class="card__description">{{ merch.description|truncatewords:25 }}</p>
         </div>
-
-        <div class="box-down">
-          <div class="h-bg">
-            <div class="h-bg-inner"></div>
-          </div>
-
-          <a class="cart" href="{{ merch.details_url }}">
-            <span class="price">৳{{ merch.price }}</span>
-            <span class="add-to-cart">
-              <span class="txt">Add to cart</span>
-            </span>
-          </a>
-        </div>
+        <a href="{% url 'add_to_cart' 'merch' merch.id %}" class="card__button">Add to cart</a>
       </div>
-      {% endfor %}
-    </div>
-  </div>
+    </article>
+  {% endfor %}
 </div>
-
-
+</div>
 
 
 {% endblock %}

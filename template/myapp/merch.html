@@ -3,28 +3,56 @@
 
 {% load static %}
 {% block extra_head %}
-<link rel="stylesheet" href="{% static 'css/merch.css' %}">
+<link rel="stylesheet" href="{% static 'css/manga.css' %}">
 {% endblock %}
 {% block content %}
 <div class="product-title">
     <h2>
         Merchandise
     </h2>
+    <div class="card-container">
+  {% for merch in merch_preview %}
+    <article class="card">
+        <a href="{% url 'merch_view' merch.id %}">
+            <img
+        class="card__background"
+        src="{{ merch.picture.url }}"
+        alt="{{ merch.name }}"
+        width="1920"
+        height="2193"
+      />
+        </a>
+
+      <div class="card-price">৳{{merch.price}}</div>
+      <div class="card__content | flow">
+        <div class="card__content--container | flow">
+          <h2 class="card__title"  style="font-size: 1.5rem; color:##e1f2f2; background-color: rgba(43, 15, 15, .7)">{{ merch.name }}</h2>
+          <p class="card__description">{{ merch.description|truncatewords:25 }}</p>
+        </div>
+        <a href="{% url 'add_to_cart' 'merch' merch.id %}" class="card__button">Add to cart</a>
+      </div>
+    </article>
+  {% endfor %}
 </div>
-<div class="manga_container">
-    {% for m in merch_preview %}
-    <div class="manga_item">
-        <div class="manga_image">
-            <!-- Show the manga image -->
-            <img src="{{ m.picture.url }}" alt="{{ m.name }}">
-        </div>
-        <div class="manga_info">
-            <h3>{{ m.name }}</h3>
-            <p>{{ m.description }}</p>  <!-- Display manga description -->
-            <a href="{{ m.details }}">See More</a>  <!-- Link to the detailed page -->
-        </div>
-    </div>
-    {% endfor %}
 </div>
 
+{% endblock %}
+{% block extra_scripts %}
+
+<script>
+  $(document).ready(function(){
+    $(".set-bg").each(function () {
+      var bg = $(this).data("setbg");
+      $(this).css("background-image", "url(" + bg + ")");
+    });
+
+    $(".hero__slider").owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      nav: true,
+      navText: ["<", ">"]
+    });
+  });
+</script>
 {% endblock %}

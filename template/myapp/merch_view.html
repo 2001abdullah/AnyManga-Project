@@ -13,7 +13,7 @@
             <aside class="col-lg-6">
               <div class="border rounded-4 mb-3 d-flex justify-content-center">
                 <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="#">
-                  <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ manga.picture.url }}" />
+                  <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ merch.picture.url }}" />
                 </a>
               </div>
               <!-- thumbs-wrap.// -->
@@ -22,8 +22,8 @@
             <main class="col-lg-6">
               <div class="ps-lg-3">
                 <h4 class="title text-dark">
-                  <a href="#" style="text-decoration:none;color:black;font-weight:bold">{{ manga.name }}</a><br/>
-                  {{ manga.category }}
+                  <a href="#" style="text-decoration:none;color:black;font-weight:bold">{{ merch.name }}</a><br/>
+                  {{ merch.category }}
                 </h4>
 
                 <br>
@@ -36,16 +36,16 @@
 
                 <div class="row">
                   <dt class="col-3">Price:</dt>
-                  <dd class="col-9">{{ manga.price }}</dd>
+                  <dd class="col-9">{{ merch.price }}</dd>
 
                   <dt class="col-3">Writer:</dt>
-                  <dd class="col-9">{{ manga.writer }}</dd>
+                  <dd class="col-9">none}</dd>
 
                   <dt class="col-3">Volume:</dt>
-                  <dd class="col-9">{{ manga.volume }}</dd>
+                  <dd class="col-9">none</dd>
 
                   <dt class="col-3">Category:</dt>
-                  <dd class="col-9">{{ manga.category }}</dd>
+                  <dd class="col-9">{{ merch.category }}</dd>
                 </div>
 
                 <hr />
@@ -66,9 +66,10 @@
                 </div>
                 <br>
                 <a href="{% url 'checkout' %}" class="btn btn-warning shadow-0 me-3 ms-3"> Buy now </a>
-                <a href="{% url 'add_to_cart' 'manga' manga.id %}" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+                <a href="{% url 'add_to_cart' 'merch' merch.id %}" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
 
               </div>
+
             </main>
           </div>
         </div>

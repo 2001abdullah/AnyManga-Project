@@ -9,7 +9,7 @@ from decimal import Decimal
 
 # Create your views here.
 def home(request):
-    manga_preview=Manga.objects.all()
+    manga_preview=Manga.objects.all()[:8]
     merch_preview=Merch.objects.all()
     naruto=Manga.objects.get(name='Naruto:Shippuden')
     context={
@@ -35,6 +35,9 @@ def merch(request):
 
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -226,3 +229,9 @@ def manga_view(request,manga_id):
         'manga':manga
     }
     return render(request,'myapp/manga-view.html',context=context)
+def merch_view(request,merch_id):
+    merch=get_object_or_404(Merch,id=merch_id)
+    context={
+        'merch':merch
+    }
+    return render(request,'myapp/merch_view.html',context=context)

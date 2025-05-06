@@ -11,6 +11,7 @@ body{
     background: linear-gradient(to bottom,#70062d,#8c0909);
 
 }
+
 :root {
   /* Colors */
   --brand-color: hsl(46, 100%, 50%);
@@ -70,9 +71,9 @@ p {
   position:relative;
   display: grid;
   place-items: center;
-  width: 80vw;
+  width: 100%;
   max-width: 21.875rem;
-  height: 540px;
+  height: 550px!important;
   overflow: hidden;
   border-radius: 0.625rem;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -87,22 +88,36 @@ p {
   object-fit: cover;
   max-width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  position:absolute;
 }
 
 .card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   --flow-space: 0.9375rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: flex-end;
   height: 70%;
   padding: 12% 1.25rem 1.875rem;
+
   background: linear-gradient(
     180deg,
     hsla(0, 0%, 0%, 0) 0%,
     hsla(0, 0%, 0%, 0.3) 10%,
     hsl(0, 0%, 0%) 100%
   );
+
+  transform: translateY(62%);
+  transition: transform 500ms ease-out;
+  transition-delay: 500ms;
+  pointer-events: none;
 }
 .card-price {
   position: absolute;
@@ -226,63 +241,6 @@ p {
 }
 
 
-
-/*
-.manga_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.manga_item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s;
-}
-
-.manga_item:hover {
-    transform: scale(1.05);
-}
-
-.manga_image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.manga_info {
-    padding: 10px;
-}
-
-.manga_info h3 {
-    font-size: 1.2em;
-    margin: 0;
-}
-
-.manga_info p {
-    font-size: 1em;
-    color: #555;
-    margin: 10px 0;
-}
-
-.manga_info a {
-    display: inline-block;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.manga_info a:hover {
-    background-color: #0056b3;
-}
-
-*/
 
 /*---------------------
   Hero design
@@ -475,7 +433,9 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
 }
+
 
 .align-center {
   -webkit-box-align: center;
@@ -506,12 +466,21 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 
+
+}
 .el-wrapper {
-  width: 360px;
+  width: 300px;
   padding: 15px;
   margin: 15px auto;
   background-color: #fff;
+   flex: 0 0 auto;
+
 }
 
 @media (max-width: 991px) {

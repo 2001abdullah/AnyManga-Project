@@ -32,7 +32,8 @@ urlpatterns = [
     path('cart/', myview.view_cart, name='view_cart'),
     path('remove-from-cart/<str:product_type>/<int:product_id>/',myview.remove_from_cart, name='remove_from_cart'),
     path('checkout/',myview.checkout,name='checkout'),
-    path('manga/<int:manga_id>/',myview.manga_view, name='manga_view')
+    path('manga/<int:manga_id>/',myview.manga_view, name='manga_view'),
+    path('merch/<int:merch_id>/',myview.merch_view, name='merch_view'),
 
 ]  + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

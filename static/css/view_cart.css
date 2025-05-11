@@ -1,9 +1,11 @@
 /* Global settings */
 html,body {
-  padding: 0px 30px 30px 20px;
+  margin: 0;
+  padding: 0;
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 100;
   height:100%;
+  width:100%;
 
 }
 body {
@@ -13,13 +15,10 @@ body {
 
 }
 
-footer {
-  margin-top: auto;
-
-}
 h1 {
   font-weight: 100;
-  margin-top: 30px;
+  margin: 30px;
+
 }
 
 label {
@@ -28,6 +27,7 @@ label {
 
 .shopping-cart {
   margin-top: 45px;
+  width:98%;
 }
 
 /* Global table column settings */

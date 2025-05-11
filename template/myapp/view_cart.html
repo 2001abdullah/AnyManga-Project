@@ -2,7 +2,14 @@
 {% load static %}
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/view_cart.css' %}">
-
+<style>
+  body{
+  padding:0;
+  margin:0;
+  width:100%;
+  height:100%;
+  }
+</style>
 {% endblock %}
 {% block content %}
 <h1>Shopping Cart</h1>
@@ -66,7 +73,9 @@
 </a>
 </div>
 {% endblock %}
+{% block footer %}
 
+{% endblock %}
 {% block extra_scripts %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -148,8 +157,5 @@ function removeItem(removeButton)
   });
 }
 </script>
-{% endblock %}
-
-{% block footer %}
 
 {% endblock %}

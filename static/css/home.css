@@ -1,14 +1,13 @@
-
-/*---------------------
-  home design
------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+
 
 /*---------------------
   Card Section
 -----------------------*/
 body{
-    background: linear-gradient(to bottom,#70062d,#8c0909);
+  background: #700000;
+  background: linear-gradient(90deg, rgba(112, 0, 0, 1) 0%, rgba(153, 0, 0, 1) 50%, rgba(112, 0, 0, 1) 100%);
+
 
 }
 
@@ -48,7 +47,7 @@ p {
 }
 
 .card h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: var(--font-title);
   color: var(--white);
   line-height: 1.1;
@@ -72,8 +71,8 @@ p {
   display: grid;
   place-items: center;
   width: 100%;
-  max-width: 21.875rem;
-  height: 550px!important;
+  max-width: 20rem;
+  height: 400px!important;
   overflow: hidden;
   border-radius: 0.625rem;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -240,190 +239,3 @@ h2.card__title {
 .product-title h2 {
  margin-left:50px;
 }
-
-
-
-/*---------------------
-  Hero design
------------------------*/
-
-.hero {
-	padding-top: 50px;
-}
-
-.hero__items {
-	padding: 250px 0 42px 50px;
-	border-radius: 5px;
-}
-
-.hero__text {
-	position: relative;
-	z-index: 9;
-}
-
-.hero__text .label {
-	font-size: 13px;
-	color: #e53637;
-	background: #ffffff;
-	padding: 5px 14px 3px;
-	display: inline-block;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.2s;
-	-o-transition: all, 0.2s;
-	transition: all, 0.2s;
-}
-
-.hero__text h2 {
-	color: #ffffff;
-	font-size: 42px;
-	font-family: "Oswald", sans-serif;
-	font-weight: 700;
-	line-height: 52px;
-	margin-top: 35px;
-	margin-bottom: 8px;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.4s;
-	-o-transition: all, 0.4s;
-	transition: all, 0.4s;
-}
-
-.hero__text p {
-	color: #ffffff;
-	font-size: 16px;
-	margin-bottom: 40px;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.6s;
-	-o-transition: all, 0.6s;
-	transition: all, 0.6s;
-}
-
-.hero__text a {
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.8s;
-	-o-transition: all, 0.8s;
-	transition: all, 0.8s;
-}
-
-.hero__text a span {
-	font-size: 13px;
-	color: #ffffff;
-	background: #e53637;
-	display: inline-block;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	padding: 14px 20px;
-	border-radius: 4px 0 0 4px;
-	margin-right: 1px;
-}
-
-.hero__text a i {
-	font-size: 20px;
-	display: inline-block;
-	background: #e53637;
-	padding: 11px 5px 16px 8px;
-	color: #ffffff;
-	border-radius: 0 4px 4px 0;
-}
-
-.hero__slider.owl-carousel .owl-item.active .hero__text .label {
-	top: 0;
-	opacity: 1;
-}
-
-.hero__slider.owl-carousel .owl-item.active .hero__text h2 {
-	top: 0;
-	opacity: 1;
-}
-
-.hero__slider.owl-carousel .owl-item.active .hero__text p {
-	top: 0;
-	opacity: 1;
-}
-
-.hero__slider.owl-carousel .owl-item.active .hero__text a {
-	top: 0;
-	opacity: 1;
-}
-
-.hero__slider.owl-carousel .owl-dots {
-	position: absolute;
-	left: 0;
-	bottom: 10px;
-	width: 100%;
-	text-align: center;
-}
-
-.hero__slider.owl-carousel .owl-dots button {
-	height: 8px;
-	width: 8px;
-	background: #b7b7b7;
-	border-radius: 50%;
-	margin-right: 10px;
-}
-
-.hero__slider.owl-carousel .owl-dots button.active {
-	background: #ffffff;
-}
-
-.hero__slider.owl-carousel .owl-dots button:last-child {
-	margin-right: 0;
-}
-
-.hero__slider.owl-carousel .owl-nav button {
-	font-size: 36px;
-	height: 66px;
-	width: 66px;
-	background: #0b0c2a;
-	line-height: 66px;
-	text-align: center;
-	color: #ffffff;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	position: relative;
-	z-index: 1;
-	position: absolute;
-	left: -33px;
-	top: 50%;
-	margin-top: -47px;
-}
-
-.hero__slider.owl-carousel .owl-nav button.owl-next {
-	left: auto;
-	right: -33px;
-}
-
-.hero__slider.owl-carousel .owl-nav button:after {
-	position: absolute;
-	top: 6px;
-	left: 0;
-	right: 0;
-	height: 54px;
-	width: 54px;
-	background: rgba(255, 255, 255, 0.1);
-	content: "";
-	z-index: -1;
-	margin: 0 auto;
-}
-
-.hero__slider.owl-carousel .owl-nav button span {
-	-webkit-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	display: block;
-	z-index: 1;
-}
-
-/*---------------------
-  Hero end
------------------------*/
-

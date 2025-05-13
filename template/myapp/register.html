@@ -8,8 +8,14 @@
 
 {% block content %}
 
+{% block navbar %}
+
+{% endblock %}
+
+
   <div class="register-container">
     <div class="wrapper">
+
     <h2>Registration</h2>
     <form method="POST" action="{% url 'register' %}">
       {% csrf_token %}
@@ -49,8 +55,9 @@
   </div>
 </div>
 
+{% endblock %}
 
-
+{% block footer %}
 
 {% endblock %}
 

@@ -139,9 +139,9 @@
 <br>
 <br>
 <div class="product-title">
-    <h2>MANGA</h2>
+    <h2 style="color:#fff">MANGA</h2>
+    <a href="{% url 'manga'%}"> view more<i class="fa-solid fa-angle-right"></i></a>
 </div>
-<br>
 <br>
 <div class="card-container">
   {% for m in manga_preview %}
@@ -172,6 +172,8 @@
     <h2 style="color:#fff">
         Merchandise
     </h2>
+    <a href="{% url 'manga'%}"> view more<i class="fa-solid fa-angle-right"></i></a>
+    </div>
     <div class="card-container">
   {% for merch in merch_preview %}
     <article class="card">
@@ -196,7 +198,8 @@
     </article>
   {% endfor %}
 </div>
-</div>
+<br>
+<br>
 
 
 {% endblock %}

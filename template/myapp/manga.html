@@ -4,13 +4,11 @@
 <link rel="stylesheet" href="{% static 'css/manga.css' %}">
 {% endblock %}
 {% block content %}
-<br>
-<br>
+
 <div class="product-title">
-    <h2>MANGA</h2>
+    <h2 style="color:#fff">MANGA</h2>
 </div>
-<br>
-<br>
+
 <div class="card-container">
   {% for m in manga_preview %}
     <article class="card">
@@ -35,7 +33,8 @@
     </article>
   {% endfor %}
 </div>
-
+<br>
+<br>
 
 {% endblock %}
 

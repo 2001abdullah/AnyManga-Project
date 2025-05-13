@@ -9,7 +9,7 @@
 
 body{
   min-height: 100vh;
-  background: url("../images/login_bg_1.jpg");
+  background: url("../images/register-bg1.jpeg");
   background-repeat:no-repeat;
   background-position: center;
   background-size: cover;
@@ -20,7 +20,7 @@ body{
   display:flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
   padding: 60px 0;
   min-height: 100vh;
 

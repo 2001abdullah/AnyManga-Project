@@ -7,10 +7,13 @@ from django.contrib.auth.decorators import login_required
 import uuid
 from decimal import Decimal
 
+
+
+
 # Create your views here.
 def home(request):
-    manga_preview=Manga.objects.all()[:8]
-    merch_preview=Merch.objects.all()
+    manga_preview=Manga.objects.all()[:5]
+    merch_preview=Merch.objects.all()[:5]
     naruto=Manga.objects.get(name='Naruto:Shippuden')
     context={
         'manga_preview':manga_preview,
@@ -236,9 +239,6 @@ def logout_view(request):
     logout(request)
     messages.success(request, "You have been logged out.")
     return redirect('home')  # Redirect to home or any other page
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .models import Order
 
 @login_required
 def order_history(request):

@@ -31,7 +31,9 @@
       color: green;
     }
 
-   body{
+body{
+  background: #700000;
+  background: linear-gradient(90deg, rgba(112, 0, 0, 1) 0%, rgba(153, 0, 0, 1) 50%, rgba(112, 0, 0, 1) 100%);
 
-   background-color:#595656 !important;
-   }
+
+}

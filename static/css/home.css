@@ -72,7 +72,7 @@ p {
   place-items: center;
   width: 100%;
   max-width: 20rem;
-  height: 400px!important;
+  height: 500px!important;
   overflow: hidden;
   border-radius: 0.625rem;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
@@ -236,6 +236,14 @@ h2.card__title {
   }
 }
 
-.product-title h2 {
- margin-left:50px;
+.product-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+.product-title a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
